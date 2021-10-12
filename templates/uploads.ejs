@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="/index1.js" defer ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<h1>Welcome to upload page!</h1>
+
+<div class="jumpto">
+<p>You can upload files here</p><br>
+
+<form action="/uploaded" method="post" enctype="multipart/form-data">
+    <input type="file" name="myimage">
+    <input type="submit">
+</form>
+
+<br>
+<div class="jumpto">
+	<a href="/">Click here to return to homepage</a><br>
+	<a href="/logout">Logout</a>
+</div>
+
+</div>
+</body>
+</html>

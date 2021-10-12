@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="/index1.js" defer ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+<div class="nextmove">
+    <%if(log) {%>
+        <a href="/upload">Click here to upload!</a>
+    <%}%>
+    <%if(!log){%>
+        <a href="/login">Login</a>
+        <a href="/register">Signup</a>
+    <%}%>
+</div>
+
+<h1>Welcome</h1>
+<div class="postimg1">
+            <p>uploader: <%= data[2][0].username%></p>
+            <p id="imgn"><%= data[2][0].imgname%></p>
+            <img src="<%=data[2][0].src%>">
+
+                        <div>
+                            <%if(data[1]!=""){%>
+                            <button class="btn" id="like-btn" disabled>
+                                <span class="likes" ><i class="fa fa-heartbeat"></i></span>
+                            </button>
+                            <%} else {%>
+                                    <button class="btn" id="like-btn" onclick="like()">
+                                        <span class="likes" ><i class="fa fa-heartbeat"></i></span>
+                                    </button>
+                                <%}%>
+                            <span id="likecounter"><%=data[2][0].likes%></span>
+                        </div>
+            <span>Time: <%=data[2][0].uploadtime%></span>
+			<h4 class="zone">Comment Zone:</h4>
+
+                        <div id="commentbox1" class="commentbox">
+                            <%if(data[0] != null) {%>
+                                <%for (var k in data[0]) {%>
+                                <p><%=data[0][k].username%> : <%=data[0][k].content%></p>
+                            <%}{%>
+                        </div>
+
+                        <span class="comment">
+                                    <input type="text" name="comment" id="inputcomment">
+                                    <button class="btn" onclick="postComment()"><i class="fa fa-arrow-circle-up"></i></button>
+                        </span>
+    <% } %>
+<%} else {%>
+<%}%>
+</div>
+
+<div class="jumpto">
+<a href="/">Click here to return to homepage</a><br>
+<a href="/logout">Logout</a>
+</div>
+</body>
+</html>
